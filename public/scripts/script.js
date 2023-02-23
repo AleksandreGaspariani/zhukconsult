@@ -4,6 +4,8 @@ $(document).ready(function(){
         $('#dropdown-menu').toggleClass('d-none');
     });
 
+
+
     window.onscroll = function() {scrollFunction()};
 
     function scrollFunction() {
@@ -18,4 +20,9 @@ $(document).ready(function(){
         e.preventDefault();
         $('html, body').animate({scrollTop:0}, 'slow');
     });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 });

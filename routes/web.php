@@ -7,6 +7,8 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\FooterController;
+use App\Http\Controllers\TestimonialController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,7 @@ Route::get('/',[HomepageController::class, 'index'])->name('home');
 Route::get('/about_us',[AboutusController::class, 'index'])->name('about_us');
 Route::get('/our_services',[ServicesController::class, 'index'])->name('our_services');
 Route::get('/our_experience',[ExperienceController::class, 'index'])->name('our_experience');
+Route::get('/testimonials',[TestimonialController::class, 'index'])->name('testimonials');
 
 Route::middleware(['auth'])->group(function() {
 
@@ -62,6 +65,18 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/our_experience/banner', [ExperienceController::class , 'editBanner'])->name('our_experience_edit_banner');
     Route::post('/our_experience/banner/store', [ExperienceController::class , 'storeBanner'])->name('our_experience_store_banner');
 
+//    Testimonials
+    Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('create_testimonial');
+    Route::post('/testimonials/store', [TestimonialController::class, 'store'])->name('store_testimonial');
+    Route::get('/testimonials/edit/{id}', [TestimonialController::class, 'edit'])->name('edit_testimonial');
+    Route::post('/testimonials/update/{id}', [TestimonialController::class, 'update'])->name('update_testimonial');
+    Route::get('/testimonials/delete/{id}', [TestimonialController::class, 'destroy'])->name('delete_testimonial');
+    Route::get('/testimonials/banner', [TestimonialController::class , 'editBanner'])->name('testimonial_edit_banner');
+    Route::post('/testimonials/banner/store', [TestimonialController::class , 'storeBanner'])->name('testimonial_store_banner');
+
+//    Footer
+    Route::get('/footer/edit/', [FooterController::class, 'edit'])->name('edit_footer');
+    Route::post('/footer/update/', [FooterController::class, 'update'])->name('update_footer');
 
 //    Logout
     Route::get('/logout/{id}',[HomeController::class, 'logout'])->name('logout');
@@ -70,7 +85,6 @@ Route::middleware(['auth'])->group(function() {
 
 
 Route::get('/our_clients',[PagesController::class, 'our_clients'])->name('our_clients');
-Route::get('/testimonials',[PagesController::class, 'testimonials'])->name('testimonials');
 Route::get('/contact',[PagesController::class, 'contact'])->name('contact');
 
 //Home Page

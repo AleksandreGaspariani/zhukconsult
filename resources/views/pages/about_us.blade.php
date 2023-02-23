@@ -9,20 +9,35 @@
         <div class="cheader-image">
             <a href="{{route('home')}}"><img src="../media/logo.jpg" alt="" width="250px" height="auto"></a>
         </div>
-        <div class="cheader-phrase">
-            <p>"Happiness is a by-product of an effort to make someone else happy."<br>
-                Gretta Palmer, Author and Editor</p>
+        <div class="d-flex flex-column justify-content-start">
+            <div class="cheader-phrase">
+                <p class="ms-4 text-weight-bold">"Happiness is a by-product of an effort to make someone else happy."<br>
+                    Gretta Palmer, Author and Editor</p>
+            </div>
+
+            <ul class="dropdown-ul d-flex justify-content-end align-items-center">
+                <li>
+                    <a href="#" style="color: black"><i class="bi bi-list" id="dropdown-button"></i></a>
+                </li>
+            </ul>
+
+            <div class="container d-flex justify-content-start header-navbar" id="lessThan1125px">
+                <ul class="d-flex justify-content-end align-items-center">
+                    <li><a href="{{route('home')}}">home</a></li>
+                    <li><a href="{{route('about_us')}}" class="active-btn">about us</a></li>
+                    <li><a href="{{route('our_services')}}">our services</a></li>
+                    <li><a href="{{route('our_experience')}}">our experience</a></li>
+                    <li><a href="{{route('our_clients')}}">our clients</a></li>
+                    <li><a href="{{route('testimonials')}}">testimonials</a></li>
+                    <li><a href="{{route('contact')}}">contact</a></li>
+                </ul>
+            </div>
         </div>
-        <ul class="dropdown-ul d-flex justify-content-end align-items-center">
-            <li>
-                <a href="#" style="color: black"><i class="bi bi-list" id="dropdown-button"></i></a>
-            </li>
-        </ul>
     </div>
     <!-- end header logo etc. -->
 
     <!-- Header navbar -->
-    <div class="container d-flex justify-content-end align-items-center header-navbar">
+    <div class="container d-flex justify-content-end align-items-center header-navbar d-none" id="moreThan1225px">
         <ul class="d-flex justify-content-end align-items-center">
             <li><a href="{{route('home')}}">home</a></li>
             <li><a href="{{route('about_us')}}" class="active-btn">about us</a></li>
@@ -51,21 +66,10 @@
             <div class="darker"></div>
         </div>
 
-        @auth()
-            <div class="d-flex justify-content-start align-items-center w-100" id="apanel">
-                <ul class="d-flex justify-content-center align-items-center p-2">
-                    <li class="list-group-item ms-2">You'r logged as user: <span class="text-info p-2 bg-dark rounded">{{Auth::user()->name}}</span></li>
-                    <li class="list-group-item ms-2"><a href="/about_us/create" class="btn btn-outline-dark">Add Post</a></li>
-                    <li class="list-group-item ms-2"> <a href="{{route('about_us_edit_banner',['page' => 'about_us'])}}" class="btn btn-outline-dark">Change Banner</a></li>
-                    <li class="list-group-item ms-2"> <a href="/logout/{{Auth::user()->id}}" class="btn btn-outline-danger">Logout</a></li>
-                </ul>
-            </div>
-        @endauth
-
         <div class="abu-posts mt-5">
             @if(isset($posts))
                 @foreach($posts as $post)
-                    <div class="abu-post justify-content-center align-items-start mt-5">
+                    <div class="abu-post justify-content-center align-items-start mt-5 w-100">
                         <div class="d-flex justify-content-center">
                             <img src="../uploads/aboutUsImgs/{{$post->image_name}}" alt="" width="300px" height="auto">
                         </div>
@@ -84,26 +88,41 @@
                     </div>
                 @endforeach
             @endif
+                <div class="und-post-area d-flex justify-content-center">
+                    <div class="und-post" style="padding: 5vh 5%">
 
-        </div>
+                        @if(isset($footer))
+                            {!! $footer->footer_text !!}
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="mailto:{{$footer->footer_email}}">{{$footer->footer_email}}</a>
+                            @auth()
+                                <a href="/about_us/footer/edit" class="ms-3">
+                                    <i class="bi bi-pencil-square text-black" data-toggle="tooltip" data-placement="right" title="Edit Text" style="font-size: 18px"></i>
+                                </a>
+                            @endauth
+                            </div>
 
-        <div class="und-post-area d-flex justify-content-center">
-            <div class="und-post" style="padding: 10vh 0vh">
+                        @endif
 
-                @if(isset($footer))
-                    {!! $footer->footer_text !!}
-
-                    <a href="mailto:{{$footer->footer_email}}">{{$footer->footer_email}}</a>
-
-                @auth()
-                    <div class="d-flex justify-content-start p-0 m-0">
-                        <a href="/about_us/footer/edit" class="btn btn-outline-info ms-3">Edit</a>
                     </div>
-                @endauth
+                </div>
 
-                @endif
-
-            </div>
         </div>
     </div>
+
+    @auth()
+        <div class="" id="adminPanel">
+            <ul class="d-flex justify-content-start p-2">
+                <a href="/about_us/create">
+                    <i class="bi bi-file-post text-info" data-toggle="tooltip" data-placement="right" title="Add post"></i>
+                </a>
+                <a href="{{route('about_us_edit_banner',['page' => 'about_us'])}}">
+                    <i class="bi bi-collection-fill text-info" data-toggle="tooltip" data-placement="right" title="Change Banner"></i>
+                </a>
+                <a href="/logout/{{Auth::user()->id}}">
+                    <i class="bi bi-box-arrow-left text-danger" data-toggle="tooltip" data-placement="right" title="Logout"></i>
+                </a>
+            </ul>
+        </div>
+    @endauth
 @endsection

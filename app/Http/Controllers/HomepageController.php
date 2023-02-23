@@ -7,12 +7,17 @@ use App\Models\Homepage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Models\Footer;
 
 class HomepageController extends Controller
 {
 
     public function index()
     {
+        $footerRow = Footer::first()->get();
+        $footer = $footerRow[0]['footer_text'];
+        session()->put('footer',$footer);
+
         $posts = Homepage::all();
         return view('pages.home', compact('posts'));
         //

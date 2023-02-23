@@ -1,7 +1,12 @@
-<footer class="footer">
-    <p class="m-0 p-0 text-white">Theme Soft Business by
-        <a href="http://creativthemes.com/" class="text-white">Creativ Themes</a>
+<footer class="footer d-flex justify-content-center align-items-center">
+    <p class="m-0 p-0">
+            {!! $footer = session()->get('footer') !!}
     </p>
+    @auth()
+        <a href="{{route('edit_footer')}}" class="ms-3">
+            <i class="bi bi-pencil-square text-white" data-toggle="tooltip" data-placement="right" title="Edit Footer"></i>
+        </a>
+    @endauth
 </footer>
 
 <div>
@@ -9,6 +14,8 @@
         <i class="bi bi-arrow-bar-up text-info p-2 bg-info text-white border rounded"></i>
     </a>
 </div>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="{{asset('scripts/script.js')}}"></script>
