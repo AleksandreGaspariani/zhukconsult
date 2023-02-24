@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Testimonials;
+use App\Models\Banner;
+use Illuminate\Support\Facades\File;
 
 class TestimonialController extends Controller
 {
@@ -56,26 +58,19 @@ class TestimonialController extends Controller
         return redirect()->route('testimonials')->with('success', 'Testimonial deleted successfully');
     }
     public function editBanner(){
-        $banner = Testimonials::where('page','=','testimonial')->first();
-        $text = $banner['text'];
-        $image = $banner['image'];
-        $bannerId = $banner['id'];
-
-        return view('pages/testimonials.editBanner',compact('text','image','bannerId'));
+        $banner = 'testimonialBanner.jpg';
+        return view('pages/testimonials/banner', compact('banner'));
     }
-    public function updateBanner(Request $request, $id){
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $fileName = time() . '-' . $file->getClientOriginalName();
-            $request->file('image')->move(public_path('/uploads/testimonials'), $fileName);
-            $request->image = $fileName;
+    public function updateBanner(Request $request){
+        $banner = Banner::where('page', 'testimonial')->first();
+        $fileName = $banner->image;
+        //remove old
+        if (File::exists(public_path('/media/'.$fileName))){
+            File::delete(public_path('/media/'.$fileName));
         }
-
-        $banner = Testimonials::find($id);
-        $banner->text = $request->text;
-        $banner->image = $request->image;
-        $banner->save();
-        return redirect()->route('testimonials.index')->with('success', 'Banner updated successfully');
+        //add new
+        $request->file('file')->move(public_path('/media/'), $fileName);
+        return redirect()->route('testimonials')->with('success', 'Banner updated successfully');
     }
 
 }

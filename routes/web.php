@@ -72,7 +72,7 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/testimonials/update/{id}', [TestimonialController::class, 'update'])->name('update_testimonial');
     Route::get('/testimonials/delete/{id}', [TestimonialController::class, 'destroy'])->name('delete_testimonial');
     Route::get('/testimonials/banner', [TestimonialController::class , 'editBanner'])->name('testimonial_edit_banner');
-    Route::post('/testimonials/banner/store', [TestimonialController::class , 'storeBanner'])->name('testimonial_store_banner');
+    Route::post('/testimonials/banner/store', [TestimonialController::class , 'updateBanner'])->name('testimonial_store_banner');
 
 //    Footer
     Route::get('/footer/edit/', [FooterController::class, 'edit'])->name('edit_footer');
