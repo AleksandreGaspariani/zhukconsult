@@ -70,14 +70,16 @@
             @if(isset($testimonials))
 {{--                @dd($testimonials)--}}
                 @foreach($testimonials as $testimonial)
-                    <div class="w-100 d-flex justify-content-start">
-                        <a href="/testimonials/edit/{{$testimonial->id}}" class="ms-3">
-                            <i class="bi bi-pencil-square text-black" data-toggle="tooltip" data-placement="right" title="Edit Testimonial" style="font-size: 22px"></i>
-                        </a>
-                        <a href="/testimonials/delete/{{$testimonial->id}}" class="ms-3">
-                            <i class="bi bi-x-square text-danger" data-toggle="tooltip" data-placement="right" title="Delete Testimonial" style="font-size: 22px"></i>
-                        </a>
-                    </div>
+                    @auth()
+                        <div class="w-100 d-flex justify-content-start">
+                            <a href="/testimonials/edit/{{$testimonial->id}}" class="ms-3">
+                                <i class="bi bi-pencil-square text-black" data-toggle="tooltip" data-placement="right" title="Edit Testimonial" style="font-size: 22px"></i>
+                            </a>
+                            <a href="/testimonials/delete/{{$testimonial->id}}" class="ms-3">
+                                <i class="bi bi-x-square text-danger" data-toggle="tooltip" data-placement="right" title="Delete Testimonial" style="font-size: 22px"></i>
+                            </a>
+                        </div>
+                    @endauth
                     <div class="testimonial-post">
                         <div class="testimonial-image">
                             <img src="{{asset('uploads/testimonials/'.$testimonial->image)}}" alt="">
