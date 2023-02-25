@@ -71,7 +71,7 @@
                 @foreach($posts as $post)
                     <div class="abu-post justify-content-center align-items-start mt-5 w-100">
                         <div class="d-flex justify-content-center">
-                            <img src="../uploads/aboutUsImgs/{{$post->image_name}}" alt="" width="300px" height="auto">
+                            <img src="../uploads/aboutUsImgs/{{$post->image_name}}" alt="" width="" height="auto">
                         </div>
                         <div class="abu-post-text">
                             <p>{!! $post->text !!}</p>
@@ -80,8 +80,12 @@
                             </p>
                             @auth()
                                 <div class="d-flex justify-content-start p-0 m-0">
-                                    <a href="/about_us/delete/{{$post->id}}" class="btn btn-outline-danger ms-3">Delete</a>
-                                    <a href="/about_us/edit/post/{{$post->id}}" class="btn btn-outline-info ms-3">Edit</a>
+                                    <a href="/about_us/delete/{{$post->id}}" class="">
+                                        <i class="bi bi-trash text-black" style="font-size: 18px" data-toggle="tooltip" data-placement="right" title="Delete Post"></i>
+                                    </a>
+                                    <a href="/about_us/edit/post/{{$post->id}}" class="ms-3">
+                                        <i class="bi bi-pencil-square text-black" data-toggle="tooltip" data-placement="right" style="font-size: 18px" aria-label="Edit Post" data-bs-original-title="Edit Post"></i>
+                                    </a>
                                 </div>
                             @endauth
                         </div>

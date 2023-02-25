@@ -21,7 +21,7 @@
                 </li>
             </ul>
 
-            <div class="container d-flex justify-content-start header-navbar" id="lessThan1125px">
+            <div class="container d-flex justify-content-start header-navbar moreThan1125px">
                 <ul class="d-flex justify-content-end align-items-center">
                     <li><a href="{{route('home')}}">home</a></li>
                     <li><a href="{{route('about_us')}}">about us</a></li>
@@ -37,7 +37,7 @@
     <!-- end header logo etc. -->
 
     <!-- Header navbar -->
-    <div class="container d-flex justify-content-end align-items-center header-navbar d-none" id="moreThan1225px">
+    <div class="container d-flex justify-content-end align-items-center header-navbar d-none lessThan1225px">
         <ul class="d-flex justify-content-end align-items-center">
             <li><a href="{{route('home')}}">home</a></li>
             <li><a href="{{route('about_us')}}">about us</a></li>
@@ -66,7 +66,7 @@
             <div class="darker"></div>
         </div>
 
-        <div class="experience-posts mt-5">
+        <div class="experience-posts">
 
             @if(isset($experiences))
                 @foreach($experiences as $experience)

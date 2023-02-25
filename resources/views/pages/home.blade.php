@@ -104,13 +104,18 @@
 {{--                                <a href="/home/edit/post/{{$post->id}}" class="btn btn-outline-info ms-3">Edit</a>--}}
 {{--                            @endauth--}}
 {{--                        </div>--}}
+                        @auth()
+                            <div class="d-flex flex-start justify-content-start align-items-start">
+                                <a href="/home/delete/{{$post->id}}" class="">
+                                    <i class="bi bi-trash text-black ms-3" style="font-size: 18px" data-toggle="tooltip" data-placement="right" title="Delete Post"></i>
+                                </a>
+                                <a href="/home/edit/post/{{$post->id}}" class="">
+                                    <i class="bi bi-pencil-square text-black ms-3" style="font-size: 18px" data-toggle="tooltip" data-placement="right" title="Edit Post"></i>
+                                </a>
+                            </div>
+                        @endauth
                     </div>
-                @auth()
-                    <div class="d-flex flex-start">
-                        <a href="/home/delete/{{$post->id}}" class="btn btn-outline-danger ms-3">Delete</a>
-                        <a href="/home/edit/post/{{$post->id}}" class="btn btn-outline-info ms-3">Edit</a>
-                    </div>
-                @endauth
+
                 @endforeach
             @endif
         </div>

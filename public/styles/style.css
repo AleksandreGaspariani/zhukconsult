@@ -406,7 +406,7 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 0% 10%;
+    padding: 10% 10%;
 }
 
 .epxerience-post{
@@ -483,7 +483,7 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10% 20%;
+    padding: 10% 5%;
 }
 
 .testimonial-post{
@@ -507,7 +507,7 @@ p {
 /* Contact */
 
 .banner-contact {
-    background: url(../media/contact1.png);
+    background: url(../media/contactBanner.png);
     opacity: 1;
     height: 80vh;
     width: 100%;
@@ -583,7 +583,37 @@ p {
     flex-direction: column;
 }
 
+/*    Service posts edit button */
+.service-posts a{
+    width: 30px !important;
+}
+
+.bi-trash:hover {
+    color: red !important;
+}
 /* Media Querys */
+
+@media only screen and (max-width: 3000px){
+
+    .post-space{
+        min-height: 10vh;
+    }
+    .post-image {
+        /* width: 500px; */
+        margin-left: 1rem !important;
+    }
+    .post {
+        width: 80%;
+    }
+
+    .abu-post-text{
+        padding-right: 10%;
+    }
+
+    .abu-post div:first-child img {
+        width: 300px;
+    }
+}
 
 @media only screen and (min-width: 1440px) {
     .cheader {
@@ -608,182 +638,46 @@ p {
     }
 
 }
+@media only screen and (max-width: 1120px){
+    .moreThan1125px{
+        display: none;
+    }
 
-/* Media for max: 1000px width */
+    .lessThan1225px{
+        display: block;
+    }
+}
 
-@media only screen and (max-width: 1023px){
+@media only screen and (max-width: 1025px) {
 
     .header-navbar ul {
         display: none !important;
     }
-    .dropdown-ul{
+
+    .dropdown-ul {
         display: flex;
     }
-    .dropdown-li{
+
+    .dropdown-li {
         display: block;
     }
+
     .post-image img {
         width: 400px;
     }
+
     #dropdown-button {
         display: block;
         font-size: 2rem;
     }
 }
-@media only screen and (max-width:350px){
-    .post-image {width: 250px !important;}
-    .footer p{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem 0.5rem;
-    }
-    .cheader-phrase p {
-        font-size: 14px;
-        font-family: 'Roboto';
-    }
-    .dropdown-ul li a i {
-        font-size: 16px;
-        padding-right: 1rem;
-    }
 
-    .contact-map a img {
-        width: 250px !important;
-        height: auto;
-    }
-
-    .abu-post div:first-child img{
-        width: 250px !important;
+@media only screen and (max-width: 1000px){
+    .post-space {
+        padding: 10% 0%;
     }
 }
-@media only screen and (max-width:440px){
-    /* .cheader-image img {
-        width: auto;
-        height: 30px;
-    } */
-    #adminPanel ul a i{
-        font-size: 24px;
-    }
-    .banner {
-        background-position: center;
-    }
-    .w-mob-logo {
-        display: flex;
-        margin-top: 1rem;
-    }
-    .w-mob-logo img {
-        width: 150px;
-    }
-    /* Custom Header  */
-    .cheader-image {
-        display: none !important;
-    }
-    /* Home page  */
-    .post-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
-    .post-image img {
-        width: 350px !important;
-    }
-
-    .post-text {
-        width: 95%;
-        padding: 0% 0%;
-    }
-
-    /* Drop down menu */
-    #dropdown-menu{
-        width: 110%;
-    }
-    /* About us */
-    .abu-post{
-        flex-direction: column;
-    }
-
-    .abu-post div:first-child{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .abu-post-text {
-        margin-left: 0px !important;
-    }
-    /* Services */
-    .service-post ul {
-        padding: 0% 15%;
-    }
-
-    /* Clients area */
-    .client-posts {
-        display: flex;
-        flex-direction: column !important;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .crow {
-        flex-direction: column !important;
-    }
-    .ccolumn {
-        flex-direction: column !important;
-    }
-    .ccolumn img {
-        margin-bottom: 1rem;
-        width: 200px;
-    }
-
-    /* Testimonials  */
-
-    .testimonial-post {
-        flex-direction: column;
-        margin-bottom: 3rem;
-    }
-    .testimonial-image {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-    .testimonial-text p {
-        font-size: 15px;
-    }
-
-    /* Contacts */
-
-
-
-}
-@media only screen and (max-width:524px){
-    #dropdown-menu{
-        width: 110% !important;
-    }
-    .contact-div {
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-    .contact-map {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .contact-map a img {
-        width: 350px;
-        height: auto;
-    }
-    .contact-text {
-        width: 90%;
-        text-align: right;
-    }
-    .contact-text div:first-child {
-        justify-content: flex-end;
-    }
-}
 @media only screen and (max-width:770px){ /* Tablet view */
     .cheader {
         display: flex;
@@ -853,34 +747,207 @@ p {
         width: 150px;
     }
 
-    .abu-post-text {
-        width: 100% !important;
-        margin: 0 !important;
-        padding-left: 0;
-    }
+
     .testimonial-posts {
         padding: 10% 5%;
     }
     .testimonial-image img{
         width: 150px;
     }
-}
 
-@media only screen and (max-width: 1000px){
-    .post-space {
-        padding: 10% 0%;
+    /*About us*/
+
+    .abu-post-text {
+        width: 100% !important;
+        margin: 0 !important;
+        padding-left: 0;
+    }
+
+    .abu-post {
+        padding: 5% 10%;
+    }
+
+    .abu-post .abu-post-text {
+        padding-left: 5%;
+    }
+
+    .abu-post div:first-child img {
+        width: 150px !important;
     }
 }
 
-@media only screen and (max-width: 2000px){
-    .post-space{
-        min-height: 10vh;
+@media only screen and (max-width:526px){
+    #dropdown-menu{
+        width: 110% !important;
     }
+    .contact-div {
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .contact-map {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-map a img {
+        width: 350px;
+        height: auto;
+    }
+    .contact-text {
+        width: 90%;
+        text-align: right;
+    }
+    .contact-text div:first-child {
+        justify-content: flex-end;
+    }
+
+    .abu-post div:first-child {
+        width: 100%;
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .abu-post div:first-child img {
+        width: 300px !important;
+    }
+}
+
+@media only screen and (max-width:440px) {
+    /* .cheader-image img {
+        width: auto;
+        height: 30px;
+    } */
+    .footer {
+        padding: 2%;
+    }
+
+    #adminPanel ul a i {
+        font-size: 24px;
+    }
+
+    .banner {
+        background-position: center;
+    }
+
+    .w-mob-logo {
+        display: flex;
+        margin-top: 1rem;
+    }
+
+    .w-mob-logo img {
+        width: 150px;
+    }
+
+    /* Custom Header  */
+    .cheader-image {
+        display: none !important;
+    }
+
+    /* Home page  */
     .post-image {
-        /* width: 500px; */
-        margin-left: 1rem !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .post {
-        width: 80%;
+
+    .post-image img {
+        width: 350px !important;
+    }
+
+    .post-text {
+        width: 95%;
+        padding: 0% 0%;
+    }
+
+    /* Drop down menu */
+    #dropdown-menu {
+        width: 110%;
+    }
+
+    /* About us */
+    .abu-post {
+        flex-direction: column;
+    }
+
+    .abu-post div:first-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .abu-post-text {
+        margin-left: 0px !important;
+    }
+
+    /* Services */
+    .service-post ul {
+        padding: 0% 15%;
+    }
+
+    /* Clients area */
+    .client-posts {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .crow {
+        flex-direction: column !important;
+    }
+
+    .ccolumn {
+        flex-direction: column !important;
+    }
+
+    .ccolumn img {
+        margin-bottom: 1rem;
+        width: 200px;
+    }
+
+    /* Testimonials  */
+    .testimonial-post {
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
+    .testimonial-image {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-text p {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width:350px){
+    .post-image {width: 250px !important;}
+    .footer p{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0.5rem;
+    }
+    .cheader-phrase p {
+        font-size: 14px;
+        font-family: 'Roboto';
+    }
+    .dropdown-ul li a i {
+        font-size: 16px;
+        padding-right: 1rem;
+    }
+
+    .contact-map a img {
+        width: 250px !important;
+        height: auto;
+    }
+
+    .abu-post div:first-child img{
+        width: 250px !important;
     }
 }

@@ -68,22 +68,50 @@
 
         <div class="contact-div">
             <div class="contact-map">
-                <a href="https://goo.gl/maps/ueGiB4LFwkLc6g3HA">
-                    <img src="../media/image-2.png" alt="">
-                </a>
+                @if(isset($contact->image))
+                    <a href="{{$contact->image_link}}">
+                        <img src="../uploads/contact/{{$contact->image}}" alt="">
+                    </a>
+                @endif
             </div>
             <div class="contact-text">
                 <div class="d-flex align-items-center">
                     <img src="../media/54.jpg" alt="">
                     <b><i><span class="cyan-c">Z</span>huk<span class="cyan-c">C</span>onsult</i></b>
                 </div>
-                <p>Lukasstrasse 1</p>
-                <p>52070 Aachen Germany</p>
-                <p>(49) 241 977 999 91</p>
-                <p>✉️ <a href="mailto:info@zhukconsult.com">info@zhukconsult.com</a></p>
-                <p>VAT ID: DE 316 314566</p>
-                <p><b>Link:</b> <a href="https://goo.gl/maps/ueGiB4LFwkLc6g3HA">Google map</a></p>
+                @if(!isset($contact))
+                    <a href="/contact/edit">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                @elseif(isset($contact))
+                    {!! $contact->text !!}
+{{--                    <p>{{$contact->label1}}</p>--}}
+{{--                    <p>{{$contact->label2}}</p>--}}
+{{--                    <p>{{$contact->phone}}</p>--}}
+{{--                    <p>✉️ <a href="mailto:{{$contact->email}}">{{$contact->email}}</a></p>--}}
+{{--                    <p>VAT ID: {{$contact->vat}}</p>--}}
+{{--                    <p><b>Link:</b> <a href="{{$contact->map_link}}">Google map</a></p>--}}
+{{--                    <p><i class="bi bi-geo-alt-fill"></i> test </p>--}}
+                    @auth()
+                        <a href="contact/edit">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    @endauth
+                @endif
             </div>
         </div>
     </div>
+
+    @auth()
+        <div class="" id="adminPanel">
+            <ul class="d-flex justify-content-start p-2">
+                <a href="{{route('contact_edit_banner',['page' => 'contact'])}}">
+                    <i class="bi bi-collection-fill text-info" data-toggle="tooltip" data-placement="right" title="Change Banner"></i>
+                </a>
+                <a href="/logout/{{Auth::user()->id}}">
+                    <i class="bi bi-box-arrow-left text-danger" data-toggle="tooltip" data-placement="right" title="Logout"></i>
+                </a>
+            </ul>
+        </div>
+    @endauth
 @endsection

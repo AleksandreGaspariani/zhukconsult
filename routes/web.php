@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
@@ -29,6 +30,9 @@ Route::get('/about_us',[AboutusController::class, 'index'])->name('about_us');
 Route::get('/our_services',[ServicesController::class, 'index'])->name('our_services');
 Route::get('/our_experience',[ExperienceController::class, 'index'])->name('our_experience');
 Route::get('/testimonials',[TestimonialController::class, 'index'])->name('testimonials');
+//  Route::get('/our_clients',[PagesController::class, 'our_clients'])->name('our_clients');
+Route::get('/contact',[ContactsController::class, 'index'])->name('contact');
+
 
 Route::middleware(['auth'])->group(function() {
 
@@ -74,6 +78,12 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/testimonials/banner', [TestimonialController::class , 'editBanner'])->name('testimonial_edit_banner');
     Route::post('/testimonials/banner/store', [TestimonialController::class , 'updateBanner'])->name('testimonial_store_banner');
 
+//    Contact
+    Route::get('/contact/edit', [ContactsController::class, 'edit'])->name('edit_contact');
+    Route::post('/contact/update', [ContactsController::class, 'update'])->name('update_contact');
+    Route::get('/contact/banner', [ContactsController::class , 'editBanner'])->name('contact_edit_banner');
+    Route::post('/contact/banner/store', [ContactsController::class , 'updateBanner'])->name('contact_store_banner');
+
 //    Footer
     Route::get('/footer/edit/', [FooterController::class, 'edit'])->name('edit_footer');
     Route::post('/footer/update/', [FooterController::class, 'update'])->name('update_footer');
@@ -85,7 +95,6 @@ Route::middleware(['auth'])->group(function() {
 
 
 Route::get('/our_clients',[PagesController::class, 'our_clients'])->name('our_clients');
-Route::get('/contact',[PagesController::class, 'contact'])->name('contact');
 
 //Home Page
 

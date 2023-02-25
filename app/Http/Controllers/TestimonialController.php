@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Testimonials;
 use App\Models\Banner;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 
 class TestimonialController extends Controller
 {
     public function index()
     {
-        $testimonials = Testimonials::orderBy('created_at', 'desc')->get();
+        $testimonials = Testimonials::orderBy('created_at', 'asc')->get();
         return view('pages/testimonials', compact('testimonials'));
     }
     public function create()
@@ -41,15 +42,19 @@ class TestimonialController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $valid = $request->validate([
             'text' => 'required',
-            'image' => 'required',
         ]);
         $testimonial = Testimonials::find($id);
         $testimonial->text = $request->text;
-        $testimonial->image = $request->image;
+        if ($request->file('file')) {
+            $file = $request->file('file');
+            $fileName = time() . '-' . $file->getClientOriginalName();
+            $request->file('file')->move(public_path('/uploads/testimonials'), $fileName);
+            $testimonial->image = $fileName;
+        }
         $testimonial->save();
-        return redirect()->route('testimonials.index')->with('success', 'Testimonial updated successfully');
+        return redirect()->route('testimonials')->with('success', 'Testimonial updated successfully');
     }
     public function destroy($id)
     {
