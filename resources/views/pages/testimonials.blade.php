@@ -13,7 +13,7 @@
         </div>
         <div class="d-flex flex-column justify-content-start">
             <div class="cheader-phrase">
-                <p class="ms-4 text-weight-bold">"Happiness is a by-product of an effort to make someone else happy."<br>
+                <p class="ms-4 text-weight-bold">"Happiness is a by-product of an effort to make someone else happy."
                     Gretta Palmer, Author and Editor</p>
             </div>
 
