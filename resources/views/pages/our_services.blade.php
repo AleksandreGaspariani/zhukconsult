@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('inc.error')
     <!-- header logo etc. -->
     <div class="w-mob-logo justify-content-center align-items-center w-100">
         <a href="{{route('home')}}"><img src="../media/cropped-cropped-2022-10-18_111454-e1666689446199.png" alt="" width="200px" height="auto"></a>

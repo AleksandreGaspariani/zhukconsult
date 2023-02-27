@@ -7,7 +7,9 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-
+p,a,b,span,li,ul,ol,h1,h2,h3,h4,h5,h6{
+    word-break: break-word !important;
+}
 a{
     text-decoration: none !important;
     color: white;
@@ -74,11 +76,12 @@ p {
     text-decoration: none;
     color: #555555;
     text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 600;
     font-size: 16px;
-    letter-spacing: -0.5px;
+    /*letter-spacing: -0.5px;*/
     transition: .5s ease;
+    word-break: keep-all !important;
 }
 .header-navbar ul li>a:hover {
     color: #54b3ff;
@@ -152,7 +155,7 @@ p {
     align-items: center;
     flex-wrap: wrap;
     padding: 2%;
-    background-color: #3A43BA;
+    background-color: #14457B;
     text-align: center;
 }
 .footer * {
@@ -165,13 +168,13 @@ p {
 .footer p {
     box-sizing: inherit;
     line-height: 28px;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins',sans-serif !important;
     font-size: 16px;
 }
 
 .footer p a {
     text-decoration: underline !important;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
     font-size: 17px;
 }
 
@@ -356,7 +359,13 @@ p {
     padding-bottom: 10%;
     padding-top: 2rem;
 }
-
+.service-posts p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    word-break: break-word;
+}
 .service-post {
     display: flex;
     flex-direction: column;
@@ -430,7 +439,7 @@ p {
 /* Our Clients */
 
 .banner-our-clients {
-    background: url(../media/clients-1024x683.jpg);
+    background: url(../media/ourClients.jpg);
     position: relative;
     opacity: 1;
     height: 80vh;
@@ -494,6 +503,10 @@ p {
     padding-bottom: 5%;
 }
 
+.testimonial-text {
+    width: 70%;
+}
+
 .testimonial-image img {
     width: 250px;
 }
@@ -507,7 +520,7 @@ p {
 /* Contact */
 
 .banner-contact {
-    background: url(../media/contactBanner.png);
+    background: url(../media/contactBanner.jpg);
     opacity: 1;
     height: 80vh;
     width: 100%;
@@ -518,7 +531,7 @@ p {
 }
 
 .contact-div {
-    padding: 10% 0%;
+    padding: 10% 5%;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
@@ -535,6 +548,11 @@ p {
 
 .contact-text {
     text-align: right;
+}
+
+.contact-text div:first-child {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .contact-text p {
@@ -819,7 +837,7 @@ p {
         height: 30px;
     } */
     .footer {
-        padding: 2%;
+        padding: 5% 0% !important;
     }
 
     #adminPanel ul a i {
@@ -916,6 +934,10 @@ p {
         width: 100%;
         text-align: center;
         margin-bottom: 1rem;
+    }
+
+    .testimonial-image img {
+        width: 250px;
     }
 
     .testimonial-text p {

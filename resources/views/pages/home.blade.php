@@ -2,11 +2,7 @@
 
 @section('content')
     <!-- header logo etc. -->
-    @if (session()->has('success'))
-        <div class="alert alert-success d-flex justify-content-center">
-            {{ session('success') }}
-        </div>
-    @endif
+    @include('inc.error')
     <div class="w-mob-logo justify-content-center align-items-center w-100">
         <a href="{{route('home')}}"><img src="../media/cropped-cropped-2022-10-18_111454-e1666689446199.png" alt="" width="200px" height="auto"></a>
     </div>

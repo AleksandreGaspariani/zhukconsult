@@ -46,7 +46,8 @@ class HomepageController extends Controller
         $model->user_id = 1;
         $model->save();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','Post created successfully.');
+
     }
 
     /**
@@ -79,7 +80,7 @@ class HomepageController extends Controller
     {
         $post = Homepage::where('id',$id)->firstOrFail();
         $post->delete();
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','Post deleted successfully.');
     }
 
     public function editBanner()
@@ -99,7 +100,7 @@ class HomepageController extends Controller
         }
         //add new
         $request->file('file')->move(public_path('/media/'), $fileName);
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','Banner updated successfully.');
     }
 
     /**
@@ -134,7 +135,7 @@ class HomepageController extends Controller
             $post->save();
         }
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','Post updated successfully.');
 
     }
 }

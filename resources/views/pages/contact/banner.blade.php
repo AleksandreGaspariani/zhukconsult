@@ -54,7 +54,7 @@
     </div>
 
     <div class='w-100 d-flex justify-content-center' style="min-height: 50vh;padding: 10%">
-        <form action="{{route('our_experience_store_banner')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('contact_store_banner')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="d-flex flex-column justify-content-center align-items-center">
                 <p class="mt-2">Current Image</p>

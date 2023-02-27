@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('inc.error')
     <!-- header logo etc. -->
     <div class="w-mob-logo justify-content-center align-items-center w-100">
         <a href="{{route('home')}}"><img src="../media/cropped-cropped-2022-10-18_111454-e1666689446199.png" alt="" width="200px" height="auto"></a>
@@ -67,6 +68,16 @@
         </div>
 
         <div class="client-posts mt-5 mb-5">
+{{--            <div class="crow">--}}
+{{--                @for($i = 0; $i < count($posts)/3; $i++)--}}
+{{--                    <div class="ccolumn">--}}
+{{--                        @for($j = 0; $j < 3; $j++)--}}
+{{--                            <a href="{{$posts[$j]->image_link}}"><img src="{{$posts[$j]->image}}" alt=""></a>--}}
+{{--                        @endfor--}}
+{{--                        TODO: tables gadawyoba $pos $image $imagelink  --}}
+{{--                    </div>--}}
+{{--               @endfor--}}
+{{--            </div>--}}
             <div class="crow">
                 <div class="ccolumn">
                     <a href="https://www.iphronline.org/"><img src="../media/1.jpg"></a>
@@ -107,10 +118,10 @@
     @auth()
         <div class="" id="adminPanel">
             <ul class="d-flex justify-content-start p-2">
-                <a href="#">
-                    <i class="bi bi-file-post text-info" data-toggle="tooltip" data-placement="right" title="Add post"></i>
-                </a>
-                <a href="{{route('about_us_edit_banner',['page' => 'our_clients'])}}">
+{{--                <a href="#">--}}
+{{--                    <i class="bi bi-file-post text-info" data-toggle="tooltip" data-placement="right" title="Add post"></i>--}}
+{{--                </a>--}}
+                <a href="{{route('client_edit_banner',['page' => 'our_clients'])}}">
                     <i class="bi bi-collection-fill text-info" data-toggle="tooltip" data-placement="right" title="Change Banner"></i>
                 </a>
                 <a href="/logout/{{Auth::user()->id}}">
