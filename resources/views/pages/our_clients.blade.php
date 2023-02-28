@@ -68,50 +68,69 @@
         </div>
 
         <div class="client-posts mt-5 mb-5">
+            <div class="container">
+                <div class="row w-100 justify-content-center align-items-center">
+
+                    @if(isset($clients))
+                        <div class="col-md-6 mt-lg-5">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="{{$clients[0]['link']}}">
+                                    <img src="../media/{{$clients[0]['image']}}" alt="" width="200px" height="auto">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-5">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="{{$clients[1]['link']}}">
+                                    <img src="../media/{{$clients[1]['image']}}" alt="" width="200px" height="auto">
+                                </a>
+                            </div>
+                        </div>
+                        @for($i = 2; $i < count($clients); $i++)
+                                <div class="col-md-4 mt-5">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a href="{{$clients[$i]['link']}}">
+                                            <img src="../media/{{$clients[$i]['image']}}" alt="" width="200px" height="auto">
+                                        </a>
+                                    </div>
+                                </div>
+                        @endfor
+                    @endif
+                </div>
 {{--            <div class="crow">--}}
-{{--                @for($i = 0; $i < count($posts)/3; $i++)--}}
-{{--                    <div class="ccolumn">--}}
-{{--                        @for($j = 0; $j < 3; $j++)--}}
-{{--                            <a href="{{$posts[$j]->image_link}}"><img src="{{$posts[$j]->image}}" alt=""></a>--}}
-{{--                        @endfor--}}
-{{--                        TODO: tables gadawyoba $pos $image $imagelink  --}}
-{{--                    </div>--}}
-{{--               @endfor--}}
+{{--                <div class="ccolumn">--}}
+{{--                    <a href="https://www.iphronline.org/"><img src="../media/1.jpg"></a>--}}
+{{--                    <a href="https://www.nhc.no/"><img src="../media/2.jpg"></a>--}}
+{{--                </div>--}}
+{{--                <div class="ccolumn">--}}
+{{--                    <a href="https://www.ifes.org/"><img src="../media/14 (1).jpg"></a>--}}
+{{--                    <a href="https://european-union.europa.eu/index_en"><img src="../media/3.jpg"></a>--}}
+{{--                    <a href="https://www.idea.int/"><img src="../media/11 (1).jpg"></a>--}}
+{{--                </div>--}}
+{{--                <div class="ccolumn">--}}
+{{--                    <a href="https://www.hfhr.pl/en/foundation/"><img src="../media/5.jpg" height="80px"></a>--}}
+{{--                    <a href="https://www.icj.org/"><img src="../media/17.jpg"></a>--}}
+{{--                    <a href="https://eap-csf.eu/"><img src="../media/15-1.jpg"></a>--}}
+{{--                </div>--}}
+{{--                <div class="ccolumn">--}}
+{{--                    <a href="https://www.eptisa.com/en/"><img src="../media/8-1.jpg"></a>--}}
+{{--                    <a href="https://healthright.org/"><img src="../media/heal.jpg"></a>--}}
+{{--                    <a href="https://www.particip.de/"><img src="../media/6.jpg"></a>--}}
+{{--                </div>--}}
+{{--                <div class="ccolumn">--}}
+{{--                    <a href="https://www.ice-org.eu/"><img src="../media/16.jpg"></a>--}}
+{{--                    <a href="https://www.gfa-group.de/"><img src="../media/10-1.jpg"></a>--}}
+{{--                    <a href="https://www.niras.com/"><img src="../media/4.jpg"></a>--}}
+{{--                </div>--}}
+{{--                <div class="ccolumn">--}}
+{{--                    <a href="https://www.bseurope.com/"><img src="../media/12 (1).jpg"></a>--}}
+{{--                    <a href="https://www.arsprogetti.org/"><img src="../media/ASR.jpg"></a>--}}
+{{--                </div>--}}
+{{--                <div class="ccolumn">--}}
+{{--                    <a href="http://www.komis.be/"><img src="../media/komis.jpg"></a>--}}
+{{--                    <a href="https://en.altairasesores.es/"><img src="../media/13 (1).jpg"></a>--}}
+{{--                </div>--}}
 {{--            </div>--}}
-            <div class="crow">
-                <div class="ccolumn">
-                    <a href="https://www.iphronline.org/"><img src="../media/1.jpg"></a>
-                    <a href="https://www.nhc.no/"><img src="../media/2.jpg"></a>
-                </div>
-                <div class="ccolumn">
-                    <a href="https://www.ifes.org/"><img src="../media/14 (1).jpg"></a>
-                    <a href="https://european-union.europa.eu/index_en"><img src="../media/3.jpg"></a>
-                    <a href="https://www.idea.int/"><img src="../media/11 (1).jpg"></a>
-                </div>
-                <div class="ccolumn">
-                    <a href="https://www.hfhr.pl/en/foundation/"><img src="../media/5.jpg" height="80px"></a>
-                    <a href="https://www.icj.org/"><img src="../media/17.jpg"></a>
-                    <a href="https://eap-csf.eu/"><img src="../media/15-1.jpg"></a>
-                </div>
-                <div class="ccolumn">
-                    <a href="https://www.eptisa.com/en/"><img src="../media/8-1.jpg"></a>
-                    <a href="https://healthright.org/"><img src="../media/heal.jpg"></a>
-                    <a href="https://www.particip.de/"><img src="../media/6.jpg"></a>
-                </div>
-                <div class="ccolumn">
-                    <a href="https://www.ice-org.eu/"><img src="../media/16.jpg"></a>
-                    <a href="https://www.gfa-group.de/"><img src="../media/10-1.jpg"></a>
-                    <a href="https://www.niras.com/"><img src="../media/4.jpg"></a>
-                </div>
-                <div class="ccolumn">
-                    <a href="https://www.bseurope.com/"><img src="../media/12 (1).jpg"></a>
-                    <a href="https://www.arsprogetti.org/"><img src="../media/ASR.jpg"></a>
-                </div>
-                <div class="ccolumn">
-                    <a href="http://www.komis.be/"><img src="../media/komis.jpg"></a>
-                    <a href="https://en.altairasesores.es/"><img src="../media/13 (1).jpg"></a>
-                </div>
-            </div>
         </div>
     </div>
 

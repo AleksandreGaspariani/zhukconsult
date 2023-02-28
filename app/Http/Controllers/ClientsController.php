@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class ClientsController extends Controller
 {
     public function index(){
-        $posts = Client::all();
-        return view('pages.our_clients',compact('posts'));
+        $clients = Client::all();
+
+        return view('pages.our_clients',compact('clients'));
     }
 
     public function editBanner(){

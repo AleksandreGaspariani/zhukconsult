@@ -924,6 +924,10 @@ p {
         width: 200px;
     }
 
+    .col-md-4 div,.col-md-6 div{
+        padding-top: 2rem;
+    }
+
     /* Testimonials  */
     .testimonial-post {
         flex-direction: column;

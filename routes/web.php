@@ -98,7 +98,7 @@ Route::middleware(['auth'])->group(function() {
 
 
 
-Route::get('/our_clients',[PagesController::class, 'our_clients'])->name('our_clients');
+//Route::get('/our_clients',[PagesController::class, 'our_clients'])->name('our_clients');
 
 //Home Page
 
