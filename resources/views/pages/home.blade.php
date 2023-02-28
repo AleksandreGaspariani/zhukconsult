@@ -125,6 +125,9 @@
                 <a href="{{route('home_edit_banner',['page' => 'home'])}}">
                     <i class="bi bi-collection-fill text-info" data-toggle="tooltip" data-placement="right" title="Change Banner"></i>
                 </a>
+                <a href="/pdf/create">
+                    <i class="bi bi-file-earmark-pdf text-info" data-toggle="tooltip" data-placement="right" title="Add PDF files"></i>
+                </a>
                 <a href="/logout/{{Auth::user()->id}}">
                     <i class="bi bi-box-arrow-left text-danger" data-toggle="tooltip" data-placement="right" title="Logout"></i>
                 </a>

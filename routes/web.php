@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
@@ -86,11 +87,17 @@ Route::middleware(['auth'])->group(function() {
 //    Clients
     Route::get('/client/banner', [ClientsController::class , 'editBanner'])->name('client_edit_banner');
     Route::post('/client/banner/store', [ClientsController::class , 'storeBanner'])->name('client_store_banner');
+    Route::get('/client/create', [ClientsController::class, 'create'])->name('create_client');
+    Route::post('/client/store', [ClientsController::class, 'store'])->name('store_client');
+    Route::get('/client/delete/{id}', [ClientsController::class, 'destroy'])->name('delete_client');
 
 //    Footer
     Route::get('/footer/edit/', [FooterController::class, 'edit'])->name('edit_footer');
     Route::post('/footer/update/', [FooterController::class, 'update'])->name('update_footer');
 
+//    PDFs
+    Route::get('/pdf/create/', [PdfController::class, 'create'])->name('create_pdf');
+    Route::post('/pdf/store/', [PdfController::class, 'store'])->name('store_pdf');
 
 //    Logout
     Route::get('/logout/{id}',[HomeController::class, 'logout'])->name('logout');

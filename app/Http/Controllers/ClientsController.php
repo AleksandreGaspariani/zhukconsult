@@ -15,6 +15,31 @@ class ClientsController extends Controller
         return view('pages.our_clients',compact('clients'));
     }
 
+    public function create(){
+        return view('pages.clients.create');
+    }
+
+    public function store(Request $request){
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'link' => 'required',
+        ]);
+
+//        $fileName = time() . '-' . $request->file->getClientOriginalName();
+//        $request->file('file')->move(public_path('/uploads/homeImgs'), $fileName);
+//        $model = new Homepage();
+//        $model->image_name = $fileName;
+
+        $client = new Client();
+        $client->link = $request->link;
+        $imageName = time().'.'.$request->file->extension();
+        $client->image = $imageName;
+        $request->file('file')->move(public_path('/uploads/clients'), $imageName);
+        $client->save();
+
+        return redirect()->route('our_clients')->with('success','Post added successfully.');
+    }
+
     public function editBanner(){
         $banner = 'ourClients.jpg';
         return view('pages/clients.banner',compact('banner'));
@@ -33,5 +58,14 @@ class ClientsController extends Controller
         return redirect()->route('our_clients')->with('success','Banner updated successfully.');
     }
 
+    public function destroy($id){
+        $client = Client::find($id);
+        $fileName = $client->image;
+        if (File::exists(public_path('/uploads/clients/'.$fileName))){
+            File::delete(public_path('/uploads/clients/'.$fileName));
+        }
+        $client->delete();
+        return redirect()->route('our_clients')->with('success','Post deleted successfully.');
+    }
 
 }

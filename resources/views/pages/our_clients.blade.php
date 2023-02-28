@@ -73,25 +73,46 @@
 
                     @if(isset($clients))
                         <div class="col-md-6 mt-lg-5">
-                            <div class="d-flex justify-content-center align-items-center">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
                                 <a href="{{$clients[0]['link']}}">
-                                    <img src="../media/{{$clients[0]['image']}}" alt="" width="200px" height="auto">
+                                    <img src="{{asset('uploads/clients/'.$clients[0]['image'])}}" alt="" width="200px" height="auto">
                                 </a>
+                                @auth()
+                                    <div class="d-flex justify-content-start p-0 m-0">
+                                        <a href="/client/delete/{{$clients[0]->id}}" class="">
+                                            <i class="bi bi-trash text-danger" style="font-size: 18px" data-toggle="tooltip" data-placement="right" title="Delete Post"></i>
+                                        </a>
+                                    </div>
+                                @endauth
                             </div>
                         </div>
                         <div class="col-md-6 mt-5">
                             <div class="d-flex justify-content-center align-items-center">
                                 <a href="{{$clients[1]['link']}}">
-                                    <img src="../media/{{$clients[1]['image']}}" alt="" width="200px" height="auto">
+                                    <img src="{{asset('uploads/clients/'.$clients[1]['image'])}}" alt="" width="200px" height="auto">
                                 </a>
+                                @auth()
+                                    <div class="d-flex justify-content-start p-0 m-0">
+                                        <a href="/client/delete/{{$clients[1]->id}}" class="">
+                                            <i class="bi bi-trash text-danger" style="font-size: 18px" data-toggle="tooltip" data-placement="right" title="Delete Post"></i>
+                                        </a>
+                                    </div>
+                                @endauth
                             </div>
                         </div>
                         @for($i = 2; $i < count($clients); $i++)
                                 <div class="col-md-4 mt-5">
-                                    <div class="d-flex justify-content-center align-items-center">
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
                                         <a href="{{$clients[$i]['link']}}">
-                                            <img src="../media/{{$clients[$i]['image']}}" alt="" width="200px" height="auto">
+                                            <img src="{{asset('uploads/clients/'.$clients[$i]['image'])}}" alt="" width="200px" height="auto">
                                         </a>
+                                        @auth()
+                                            <div class="d-flex justify-content-start p-0 m-0">
+                                                <a href="/client/delete/{{$clients[$i]->id}}" class="">
+                                                    <i class="bi bi-trash text-danger" style="font-size: 18px" data-toggle="tooltip" data-placement="right" title="Delete Post"></i>
+                                                </a>
+                                            </div>
+                                        @endauth
                                     </div>
                                 </div>
                         @endfor
@@ -137,9 +158,9 @@
     @auth()
         <div class="" id="adminPanel">
             <ul class="d-flex justify-content-start p-2">
-{{--                <a href="#">--}}
-{{--                    <i class="bi bi-file-post text-info" data-toggle="tooltip" data-placement="right" title="Add post"></i>--}}
-{{--                </a>--}}
+                <a href="{{route('create_client')}}">
+                    <i class="bi bi-file-post text-info" data-toggle="tooltip" data-placement="right" title="Add image"></i>
+                </a>
                 <a href="{{route('client_edit_banner',['page' => 'our_clients'])}}">
                     <i class="bi bi-collection-fill text-info" data-toggle="tooltip" data-placement="right" title="Change Banner"></i>
                 </a>

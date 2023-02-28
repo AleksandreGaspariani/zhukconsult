@@ -588,7 +588,8 @@ p {
 #adminPanel {
     position: fixed;
     left: 0;
-    bottom: 40%;
+    bottom: auto;
+    top: 25%;
     z-index: 100;
 }
 
