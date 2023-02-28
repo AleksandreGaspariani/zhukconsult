@@ -25,11 +25,6 @@ class ClientsController extends Controller
             'link' => 'required',
         ]);
 
-//        $fileName = time() . '-' . $request->file->getClientOriginalName();
-//        $request->file('file')->move(public_path('/uploads/homeImgs'), $fileName);
-//        $model = new Homepage();
-//        $model->image_name = $fileName;
-
         $client = new Client();
         $client->link = $request->link;
         $imageName = time().'.'.$request->file->extension();
