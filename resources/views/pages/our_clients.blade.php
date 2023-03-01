@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 mt-5">
-                            <div class="d-flex justify-content-center align-items-center">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
                                 <a href="{{$clients[1]['link']}}">
                                     <img src="{{asset('uploads/clients/'.$clients[1]['image'])}}" alt="" width="200px" height="auto">
                                 </a>

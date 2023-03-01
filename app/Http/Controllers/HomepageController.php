@@ -69,7 +69,7 @@ class HomepageController extends Controller
      */
     public function edit($id)
     {
-        $post = Homepage::find($id)->first();
+        $post = Homepage::where('id','=',$id)->first();
         $text = $post['text'];
         $image = $post['image_name'];
         $postId = $post['id'];
